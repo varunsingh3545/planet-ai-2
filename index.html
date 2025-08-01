@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Rankings Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+<body>
+  <div class="page-background"></div>
+  <canvas id="bg-particles"></canvas>
+
+
+<header class="navbar-wrapper">
+  <div class="navbar">
+    <nav class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">AI Modules</a>
+      <a href="#">Layers</a>
+      <a href="#">Dashboard</a>
+    </nav>
+    <button class="join-btn">Join waitlist</button>
+  </div>
+</header>
+
+<div class="background-wrapper">
+  <div class="decorative-blobs">
+    <div class="blob blob-left"></div>
+    <div class="blob blob-right"></div>
+  </div>
+
+  <div class="floating-rock rock1"></div>
+  <div class="floating-rock rock2"></div>
+  <div class="floating-rock rock3"></div>
+
+  <div class="floating-object object1"></div>
+  <div class="floating-object object2"></div>
+  <div class="floating-object object3"></div>
+</div>
+
+
+<div class="side-info">
+  <div class="side-box left-box">
+    <p><span>⚡</span> Powered by XYZ Technologies</p>
+    <p><span>📊</span> Realtime analytics</p>
+  </div>
+  <div class="side-box right-box">
+    <p><span>🚀</span> 99.9% Accuracy</p>
+    <p><span>📦</span> Built for scale</p>
+  </div>
+</div>
+
+
+  <section class="hero">
+    <div class="glow-bg"></div>
+    <div class="glass-panel">
+      <h1 class="hero-title futuristic-glow">
+        Invest in Earth's Intelligence Grid
+      </h1>
+      <p class="hero-subtext impactful-clean">
+        Planet AI is building a decentralized nervous system for Earth — a real-time command center powered by intelligent agents that protect life, climate, and future economies.
+      </p>
+      
+      <div class="impact-points">
+        <div class="impact-item">
+          <div class="impact-icon">🌍</div>
+          <span class="impact-text">Live <span class="highlight">planetary monitoring</span> from oceans to forests</span>
+        </div>
+        <div class="impact-item">
+          <div class="impact-icon">🧠</div>
+          <span class="impact-text">Specialized <span class="highlight">AI agents</span> solving global challenges</span>
+        </div>
+        <div class="impact-item">
+          <div class="impact-icon">🔐</div>
+          <span class="impact-text">Dual-layer system: public transparency + private precision</span>
+        </div>
+        <div class="impact-item">
+          <div class="impact-icon">📡</div>
+          <span class="impact-text">IoT integration with real-time satellite + drone data</span>
+        </div>
+        <div class="impact-item">
+          <div class="impact-icon">💼</div>
+          <span class="impact-text">Investor-ready model with scale, impact, and revenue</span>
+        </div>
+      </div>
+      
+      <button class="cta-btn-glass">
+        <span class="cta-text">Explore Investment Opportunity</span>
+        <span class="cta-subtext">View ecosystem, projections & impact potential</span>
+      </button>
+    </div>
+    
+    <!-- Neural signal particles -->
+    <div class="neural-particles"></div>
+  </section>
+
+
+   
+  <section class="dashboard-card">
+    <p class="placeholder">[ Dashboard content goes here ]</p>
+  </section>
+
+
+  <div class="investor-cta">
+  <p>🌐 Planet AI is raising. <strong>Partner with us.</strong></p>
+  <button>Pitch Deck →</button>
+</div>
+
+
+<section class="globe-section">
+  <div class="globe-header">
+    <h2 class="globe-title">A Constellation of Intelligence</h2>
+    <p class="globe-subtitle">Explore our network of AI systems monitoring Earth's vital signs in real-time. Click on any marker to discover how our technology is revolutionizing environmental protection.</p>
+  </div>
+  <div class="globe-container" id="globe-container">
+    <canvas id="globe-canvas"></canvas>
+  </div>
+</section>
+
+<!-- Premium AI Info Card for Investors -->
+<div id="ai-info-panel" class="ai-info-panel">
+  <button class="ai-info-panel-close" id="closeAiInfoPanelBtn">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+  </button>
+  
+  <div class="ai-info-panel-header">
+    <div class="ai-info-panel-icon">
+      <div class="ai-info-panel-emoji" id="aiPanelEmoji"></div>
+      <div class="ai-info-panel-glow"></div>
+    </div>
+    <div class="ai-info-panel-title-section">
+      <h2 class="ai-info-panel-title" id="aiPanelTitle"></h2>
+      <div class="ai-info-panel-status">
+        <div class="status-indicator"></div>
+        <span>Active & Operational</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="ai-info-panel-content">
+    <div class="ai-info-panel-tagline" id="aiPanelDescription"></div>
+    
+    <div class="ai-info-panel-stats">
+      <div class="stat-item">
+        <div class="stat-value">99.7%</div>
+        <div class="stat-label">Accuracy</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">24/7</div>
+        <div class="stat-label">Monitoring</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">Real-time</div>
+        <div class="stat-label">Processing</div>
+      </div>
+    </div>
+    
+    <div class="ai-info-panel-description-full" id="aiPanelExtended"></div>
+    
+    <div class="ai-info-panel-features">
+      <h4>Key Capabilities</h4>
+      <div class="feature-list" id="aiPanelFeatures"></div>
+    </div>
+    
+    <div class="ai-info-panel-impact">
+      <h4>Business Impact</h4>
+      <div class="impact-metrics" id="aiPanelMetrics"></div>
+    </div>
+    
+    <div class="ai-info-panel-cta">
+      <button class="cta-primary">Learn More</button>
+      <button class="cta-secondary">Schedule Demo</button>
+    </div>
+  </div>
+</div>
+
+<!-- Three.js CDN -->
+<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+<!-- OrbitControls removed - using custom mouse interaction -->
+<script src="globe-simple.js"></script>
+<script src="dashboard-3d.js"></script>
+<script type="module" src="info-panel.js"></script>
+<script type="module" src="starfield.js"></script>
+
+<script>
+  const lenis = new Lenis({
+    lerp: 0.08,
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);
+</script>
+
+<!-- Scroll-triggered animations -->
+<script src="scroll-animations.js"></script>
+
+</body>
+</html>
